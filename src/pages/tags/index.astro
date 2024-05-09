@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import getUniqueTags from "../../utils/getUniqueTags";
+import Tag from "@components/Tag.astro";
+import SearchBar2 from "../../components/Search2";
+
+var posts = await getCollection("blog");
+var n = await getCollection("note");
+posts = posts.concat(n)
+const {tags, tagCounts} = getUniqueTags(posts);
+
+---
+
+<BaseLayout title = "Tags" sideBarActiveItemID="tags">
+    <div>
+        <div class="text-3xl w-full font-bold mb-5">标签</div>
+    </div>
+    <ul>
+        {tags.map(tag => <Tag name={tag} size="lg" count={tagCounts[tag]}/>)}
+    </ul>
+    <br />
+</BaseLayout>

@@ -1,0 +1,39 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HorizontalCard from "../components/HorizontalCard.astro";
+import { getCollection } from "astro:content";
+import suppDesc from "../utils/suppDesc";
+import createSlug from "../utils/createSlug";
+import { getNotes} from "../utils";
+import {SITE} from "../config";
+import getHeroImageLinkFromMd from "../utils/getHeroImageLinkFromMd";
+const posts = (await getNotes());
+
+
+const last_posts = posts.slice(0, 6);
+
+---
+
+<BaseLayout sideBarActiveItemID="home">
+  <div>
+      <a href={SITE.website + '/note'} >
+        <div class="text-1xl w-full font-thin mb-5 mt-10">最近更新</div>
+      </a>
+  </div>
+  {
+    last_posts.map((post) => (
+      <>
+        <HorizontalCard
+          title={post.data.title}
+          img={getHeroImageLinkFromMd(post)}
+          desc={suppDesc(post.data.description, post.body)}
+          url={"/note/" +  createSlug(post.data.title, post.slug)}
+          target="_self"
+          badge={post.data.badge}
+          tags={post.data.tags}
+        />
+        <div class="divider my-0" />
+      </>
+    ))
+  }
+</BaseLayout>

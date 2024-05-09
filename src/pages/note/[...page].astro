@@ -1,0 +1,67 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import HorizontalCard from "../../components/HorizontalCard.astro";
+import { getCollection } from "astro:content";
+import suppDesc from "../../utils/suppDesc";
+import createSlug from "../../utils/createSlug";
+import Pagination from "../../components/Pagination.astro";
+import getHeroImageLinkFromMd from "../../utils/getHeroImageLinkFromMd";
+
+export async function getStaticPaths({ paginate }) {
+  let posts = await getCollection("note");
+  posts = posts.filter(item => !item.data.auth)
+  posts.sort((a, b) => b.data.pubDatetime.valueOf() - a.data.pubDatetime.valueOf());
+  return paginate(posts, { pageSize: 10 });
+}
+
+const { page } = Astro.props;
+---
+
+<BaseLayout title="Note" sideBarActiveItemID="note">
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">笔记</div>
+  </div>
+
+  {
+    page.data.length === 0 ? (
+      <div class="bg-base-200 border-l-4 border-secondary w-full p-4 min-w-full">
+        <p class="font-bold">Sorry!</p>
+        <p>There are no blog posts to show at the moment. Check back later!</p>
+      </div>
+    ) : (
+      <ul>
+        {page.data.map((post) => (
+          <>
+            <HorizontalCard
+              title={post.data.title}
+              img={getHeroImageLinkFromMd(post)}
+              desc={suppDesc(post.data.description, post.body)}
+              url={"/note/" + createSlug(post.data.title, post.slug)}
+              target="_self"
+              badge={post.data.badge}
+              tags={post.data.tags}
+            />
+            <div class="divider my-0" />
+          </>
+        ))}
+      </ul>
+    )
+  }
+
+      <div class="flex justify-between mt-2 float-right">
+          {
+              page.lastPage > 1 ? (
+                      <Pagination
+                              firstPage={page.url.prev ? "/"+page.url.current.split("/")[1]: null}
+                              previousPage={page.url.prev ? page.url.prev : null}
+                              nextPage={page.url.next ? page.url.next : null}
+                              lastPage={page.url.next ? page.lastPage : null}
+                              currentPage={page.currentPage}
+                              totalPages={page.lastPage}
+                      />
+              ) : (
+                      <div />
+              )
+          }
+      </div>
+</BaseLayout>

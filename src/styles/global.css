@@ -1,0 +1,60 @@
+.time-line-container>div:last-child .education__time>.education__line {
+    display: none;
+}
+
+.card-link {
+    flex-basis: calc(33.3333% - 2em);
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.card-link:hover {
+    text-decoration: none;
+}
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1em;
+}
+
+.card {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 20px;
+    background-color: #fff;
+}
+
+.card-title {
+    font-size: 25px;
+    color: #333;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    color: #777;
+    font-size: 15px;
+}
+body {
+    /* 原版 */
+    font-family: "LXGW WenKai", sans-serif;
+    /* 屏幕优化版 */
+}

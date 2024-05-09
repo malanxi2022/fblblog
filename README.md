@@ -1,1 +1,1 @@
-# git_blog
+1. 生成 GitHub secret token  设置到Action secrect G_T
