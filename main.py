@@ -166,7 +166,7 @@ def replace_img_url(content, img_prefix):
         if "github" in img_url:
             i = i + 1
             if (not os.path.exists(DIR["img"])):
-                os.mkdir(dir)
+                os.mkdir(DIR["img"])
             file_name = img_prefix +"-" + img_url.split('/')[-1] + ".jpg"
             download_image_file(img_url, os.path.join(DIR["img"], file_name))
             content= content.replace('({})'.format(img_url), (DIR["ref_dir"]).format(file_name))
