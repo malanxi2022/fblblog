@@ -29,6 +29,9 @@ class Article:
         self.title = var2
         self.slug = var3
         self.tags = var4
+def check_dir(dir:str):
+    if not os.path.exists(dir):
+        os.makedirs(dir)
 def move_first_to_last(my_list):
     if len(my_list) >= 2:
         first_element = my_list.pop(0)
@@ -142,6 +145,8 @@ def main(token, repo_name, issue_number=None):
             continue
         global DIR
         DIR = TABLE_DIR["note"]
+        check_dir( DIR["dir"])
+        check_dir( DIR["img"])
         save_issue(issue, me)
         add_issue_id(issue.number)
         init_archives_table_readme()
