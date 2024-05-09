@@ -149,11 +149,11 @@ export const SOCIALS: SocialObjects = [
         name: "Telegram",
         href: "https://github.com/satnaing/astro-paper",
         linkTitle: `${SITE.title} on Telegram`,
-        active: true,
+        active: false,
     },
     {
         name: "Run",
-        href: "https://fbl-run.pages.dev/",
+        href: "https://fblrun.pages.dev/",
         linkTitle: `${SITE.title} on Run`,
         active: true,
     },
