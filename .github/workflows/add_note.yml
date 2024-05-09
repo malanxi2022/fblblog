@@ -14,7 +14,7 @@ on:
 
 jobs:
   sync:
-    name: Generate README
+    name: ADD TITLE
     runs-on: ubuntu-latest
     if: github.repository_owner_id == github.event.issue.user.id || github.event_name == 'push'
     steps:
