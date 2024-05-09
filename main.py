@@ -87,9 +87,7 @@ def init_archives_table_readme():
     ---
 
     <BaseLayout title="{}">
-      <div class="mb-5">
-        <div class="text-3xl w-full font-bold">Note</div>
-      </div>
+     
 
       <div class="time-line-container mb-10">
         {}
