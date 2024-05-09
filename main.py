@@ -199,7 +199,7 @@ def save_issue(issue, me):
         f.write("\n")
         # if not is_year:
         #     f.write(f"# [{issue.title}]({issue.html_url})\n\n")
-        content = issue.body
+        content = issue.body.replace('\r\n', "  \n")
         if IMG_SAVE_LOCAL and not (issue.milestone and issue.milestone.title == "no_save_image"):
             content = replace_img_url(content, dt[:10])
         f.write(content or "")
