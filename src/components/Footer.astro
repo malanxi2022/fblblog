@@ -15,14 +15,13 @@ function getDay(){
     var C = Math.floor((b-B)*60);
     var D = Math.floor((c-C)*60);
     //信息写入到DIV中
-    return "本站已勉强运行"+A+"天"+B+"小时"+C+"分"+D+"秒"
+    return "本站已勉强运行: "+A+"天"+B+"小时"+C+"分"+D+"秒"
 }
 ---
 <script type="text/javascript">
-
     function runtime(){
         // 初始时间，日/月/年 时:分:秒
-        var  X = new Date(SITE.siteTime);
+        var  X = new Date("06/30/2022 00:06:00");
         var Y = new Date();
         T = (Y.getTime()-X.getTime());
         M = 24*60*60*1000;
@@ -40,12 +39,12 @@ function getDay(){
 </script>
 
 <footer class="footer-center block mb-5 pt-10">
-    <div class="pb-2">
-        <a href={"https://mdd." + SITE.website.split("://")[1] + "/keystatic"} >Copyright &copy; {today.getFullYear()} write on {SITE.author}  ⚡️</a>
-    </div>
-    <div class="inline opacity-75">
-        <!-- Thanks for using this template. You can keep this line to support my work :) --><span id="span1" class="font-bold">{getDay()}</span>
-    </div>
+  <div class="pb-2">
+      <a href={"https://mdd." + SITE.website.split("://")[1] + "/keystatic"} >Copyright &copy; {today.getFullYear()} write on {SITE.author}  ⚡️</a>
+  </div>
+  <div class="inline opacity-75">
+    <!-- Thanks for using this template. You can keep this line to support my work :) --><span id="span1" class="font-bold">{getDay()}</span>
+  </div>
 </footer>
 <style>
 
