@@ -175,10 +175,24 @@ def replace_img_url(content, img_prefix):
             content= content.replace('({})'.format(img_url), (DIR["ref_dir"]).format(file_name))
     return content
 
+def add_cv(issue):
+    cv = '''---
+layout: ../layouts/ArchivesLayout.astro
+title: ""
+---'''
+    md_name = "src/pages/cv.md"
+    with open(md_name, "w", encoding="utf-8") as f:
+        f.write(cv)
+        f.write("\n\n")
+        content = issue.body.replace('\r\n', "  \n")
+        f.write(content or "")
 
 def save_issue(issue, me):
     # 将datetime对象转为"北京时间"
     title = f"{issue.title.replace('/', '-').replace(' ', '.')}"
+    if title == "关于我":
+        add_cv(issue)
+        return
     #  判断title是否包含时间
     dt = (issue.created_at + timedelta(hours=8)).strftime("%Y-%m-%d %H:%M:%S")
     temp = template.format(dt, title, title)
