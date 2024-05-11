@@ -154,7 +154,7 @@ export const SOCIALS: SocialObjects = [
     },
     {
         name: "Run",
-        href: "https://fblrun.pages.dev/",
+        href: "https://fblr.malanxi.top",
         linkTitle: `${SITE.title} on Run`,
         active: true,
     },
