@@ -12,7 +12,8 @@ export const SITE: Site = {
     title: "首页",
     ogImage: "astropaper-og.jpg",
     lightAndDarkMode: true,
-    posts: ["note"]
+    posts: ["note"],
+    siteTime: "06/30/2022 00:06:00"
 };
 export const SITE_TITLE = SITE.desc;
 export const LOCALE = ["zh-cn"]; // set to [] to use the environment default
