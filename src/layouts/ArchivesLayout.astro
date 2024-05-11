@@ -17,11 +17,15 @@ const { image, title = SITE_TITLE, description = SITE_DESCRIPTION, includeSideba
   <body>
     <div class="bg-base-100 drawer lg:drawer-open">
       <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+
       <div class="drawer-content bg-base-100">
         <Header title={SITE_TITLE} />
         <div class="md:flex md:justify-center">
             <main class="md:flex md:justify-center">
                 <article class="prose prose-lg max-w-[750px] prose-img:mx-auto">
+                    <div class="mb-5">
+                        <div class="text-3xl w-full font-bold">关于我</div>
+                    </div>
                     <slot />
                 </article>
           </main>
