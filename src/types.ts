@@ -5,6 +5,7 @@ export type Site = {
   title: string;
   ogImage?: string;
   lightAndDarkMode: boolean;
+  siteTime: string;
   posts;
 };
 
