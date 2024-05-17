@@ -7,8 +7,8 @@ import type { Site, SocialObjects } from "./types";
 
 export const SITE: Site = {
     website: "https://fbl.malanxi.top", // replace this with your deployed domain
-    author: "fbl",
-    desc: "朝花夕拾",
+    author: "马兰汐的妈妈",
+    desc: "马兰汐的妈妈",
     title: "首页",
     ogImage: "astropaper-og.jpg",
     lightAndDarkMode: true,
