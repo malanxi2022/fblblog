@@ -74,6 +74,7 @@ def init_archives_table_readme():
     file_list = sorted(file_list, key=lambda x: get_article_attrs(os.path.join(directory_path, x)).pubDatetime, reverse=True)
     for file in file_list:
         title = file.split(".")[0]
+        title = filename.rsplit('.', 1)[0]
         month = get_article_attrs(os.path.join(directory_path, file)).pubDatetime[0:7]
         if m_d.get(month) is None:
             m_d[month] = []
