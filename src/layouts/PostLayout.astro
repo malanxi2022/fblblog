@@ -48,5 +48,22 @@ import { Image } from "astro:assets";
     </article>
   </main>
     <div id="main-content" class="mt-8"></div>
-    <!--<Comment></Comment>-->
+   <link
+            rel="stylesheet"
+            href="https://unpkg.com/@waline/client@v3/dist/waline.css"
+    />
+    <div id="waline"></div>
+    <script type="module">
+        import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+
+        init({
+            el: '#waline',
+            reaction: true, // 开启反应
+            serverURL: 'https://fblwaline.malanxi.top/',
+            copyright: false,
+            login: 'disable',
+            imageUploader: false,
+            requiredMeta: ['nick'],
+        });
+    </script>
 </BaseLayout>
